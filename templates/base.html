@@ -1,14 +1,29 @@
+{% load bootstrap4 %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %} Neighbourhood {% endblock title %}</title>
+
+  <!-- bootstrap -->
+  {% block styles %}
+  {% bootstrap_css %}
+  {% endblock %}
+<!-- css -->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
+  {% include "navbar.html" %}
 
   {% block content %}
   {% endblock content %}
   
+{% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% bootstrap_javascript %}
+{% endblock %}
 </body>
 </html>

@@ -27,8 +27,6 @@ class UserProfile(models.Model):
   def __str__(self): 
     return 'User: {}'.format(self.user)
   
-  # def get_absolute_url(self):
-  #   return reverse('signup', args=[str(self.id)])
 
   
  
