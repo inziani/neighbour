@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 from django.utils import timezone
 
 from . import roles
@@ -25,4 +26,9 @@ class UserProfile(models.Model):
 
   def __str__(self): 
     return 'User: {}'.format(self.user)
+  
+  # def get_absolute_url(self):
+  #   return reverse('signup', args=[str(self.id)])
+
+  
  
