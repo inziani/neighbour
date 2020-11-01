@@ -49,6 +49,11 @@ INSTALLED_APPS = [
     # third party applications
     'bootstrap4',
     'crispy_forms',
+
+    # local apps
+    'pages.apps.PagesConfig',
+    'neighbour.apps.NeighbourConfig',
+
 ]
 # django-crispy-forms 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -125,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -147,3 +152,10 @@ STATICFILES_FINDERS = [
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Email configurations 
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')

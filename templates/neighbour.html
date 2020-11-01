@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="container- fluid">
+  <div class="jumbotron">
+    header
+  </div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h1>Neigbourhood</h1> <br>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Population</th>
+        </tr>
+        {% for neighbourhood in object_list %}
+        <tr>
+          <td>
+            {{ neighbourhood.name }} 
+          </td>
+          <td>
+            {{ neighbourhood.location }} 
+          </td>
+          <td>
+            {{ neighbourhood.occupants }}
+          </td>
+        </tr>
+        {% endfor %}
+      </thead>
+    </table>
+    
+  </div>
+  <div class="col-md-4">
+    <h1>Residents corner...</h1><br>
+    <table class="table table-striped">
+      <tr>
+        {% for conversation in object_list %}
+        <th><strong>{{ conversation.topic }}| {{ conversation.member }} <br></strong> </th>
+      </tr>
+      <tr>
+      <td>
+        {{ conversation.details }} 
+      </td>
+    </tr>
+    {% endfor %}
+    </table>
+  </div>
+  <div class="col-md-4">
+    <h1>Local Businesses</h1><br>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Business name</th>
+          <th>Neighbourhood</th>
+          <th>Email</th>
+          <th>Business type</th>
+        </tr>
+        {% for business in object_list %}
+        <tr>
+          <td>
+            {{ business.name }} 
+          </td>
+          <td>
+            {{ business.neighborhood}} 
+          </td>
+          <td>
+            {{ business.email  }}
+          </td>
+          <td>
+            {{ business.business_type  }}
+          </td>
+        </tr>
+        {% endfor %}
+      </thead>
+    </table>
+    
+  </div>
+</div>
+</div>
+</p> {% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log In</a> | <a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+{% endblock content %}

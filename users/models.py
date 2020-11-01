@@ -22,7 +22,7 @@ class UserProfile(models.Model):
   gok_id = models.PositiveIntegerField(default=0, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
   changed_at = models.DateTimeField(auto_now=True)
-  #neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, related_name='user_profile')
+  #neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, related_name='neighborhood')
 
   def __str__(self): 
     return 'User: {}'.format(self.user)
