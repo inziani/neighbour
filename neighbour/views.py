@@ -22,18 +22,31 @@ class CreateConvoView(CreateView):
 #   return render(request, 'neighbour.html', {'Neighbourhood':neighbourhood, 'Business':business})
 
 class NeighbourListView(ListView):
-  model = Conversation 
+  model = Neighbourhood 
   template_name = 'neighbour.html'
 
+class BusinessListView(ListView):
+  model = Business 
+  template_name = 'biashara.html'
+
+class ConversationListView(ListView):
+  model = Conversation 
+  template_name = 'moshene.html'
+
 # class NeighbourListView(ListView):
-#   # context_object_name = 'object'    
+#   # context_object_name = 'list'    
 #   template_name = 'neighbour.html'
 #   queryset= Neighbourhood.objects.all()
 
 # def get_context_data(self, **kwargs):
-#     context = super(NeighbourListView, self).get_context_data(**kwargs)
-#     context['business'] = Business.objects.all()
-#     context['neighbourhood'] = self.queryset
+#     business= Business.objects.all()
+#     neighbourhood = Business.objects.all()
+#     conversation = Conversation.object.all()
+#     context = {
+#       'business':business, 
+#       'neighbourhood':neighbourhood,
+#       'conversation':conversation,
+#     }
 #     return context
 
 class SearchResultsListView(ListView):

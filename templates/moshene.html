@@ -9,33 +9,20 @@
 
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <div class="container">
-    <h1>Neigbourhood</h1> <br>
-
+    <h1>moshene corner...</h1><br>
     <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Location</th>
-          <th>Population</th>
-        </tr>
-        {% for neighbourhood in object_list %}
-        <tr>
-          <td>
-            {{ neighbourhood.name }} 
-          </td>
-          <td>
-            {{ neighbourhood.location }} 
-          </td>
-          <td>
-            {{ neighbourhood.occupants }}
-          </td>
-        </tr>
-        {% endfor %}
-      </thead>
+      <tr>
+        {% for conversation in object_list %}
+        <th><strong>{{ conversation.topic }}| {{ conversation.member }} <br></strong> </th>
+      </tr>
+      <tr>
+      <td>
+        {{ conversation.details }} 
+      </td>
+    </tr>
+    {% endfor %}
     </table>
-    
-  </div>
-  
+</div>
 </p> {% else %}
 <p>You are not logged in</p>
 <a href="{% url 'login' %}">Log In</a> | <a href="{% url 'signup' %}">Sign Up</a>

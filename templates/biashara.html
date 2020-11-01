@@ -9,25 +9,30 @@
 
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <div class="container">
-    <h1>Neigbourhood</h1> <br>
+ 
+    <h1>Local Businesses</h1><br>
 
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Location</th>
-          <th>Population</th>
+          <th>Business name</th>
+          <th>Neighbourhood</th>
+          <th>Email</th>
+          <th>Business type</th>
         </tr>
-        {% for neighbourhood in object_list %}
+        {% for business in object_list %}
         <tr>
           <td>
-            {{ neighbourhood.name }} 
+            {{ business.name }} 
           </td>
           <td>
-            {{ neighbourhood.location }} 
+            {{ business.neighborhood}} 
           </td>
           <td>
-            {{ neighbourhood.occupants }}
+            {{ business.email  }}
+          </td>
+          <td>
+            {{ business.business_type  }}
           </td>
         </tr>
         {% endfor %}
@@ -35,7 +40,7 @@
     </table>
     
   </div>
-  
+
 </p> {% else %}
 <p>You are not logged in</p>
 <a href="{% url 'login' %}">Log In</a> | <a href="{% url 'signup' %}">Sign Up</a>
