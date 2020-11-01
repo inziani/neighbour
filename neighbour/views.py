@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView
+from django.db.models import Q
 
 from .models import Neighbourhood, Business, Conversation
 
@@ -24,6 +25,17 @@ class NeighbourListView(ListView):
 #     context['business'] = Business.objects.all()
 #     context['neighbourhood'] = self.queryset
 #     return context
+
+class SearchResultsListView(ListView):
+  model = Business
+  template_name = 'neighbour.html'
+
+  def get_queryset(self):
+    query = self.request.GET.get('q')
+    return Business.objects.filter(Q(name__icontains=query)| Q(business_type__icontains=query))
+
+
+
 
 
 
