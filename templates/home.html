@@ -6,14 +6,13 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-Hi {{ user.username }}!
-
-<h1>Homepage</h1>
-<p><a href="{% url 'logout' %}">Log Out</a>|<p><a href="{% url 'edit_profile' user.pk %}">Edit Profile</a>
-
-</p> {% else %}
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a> | <a href="{% url 'signup' %}">Sign Up</a>
+<div class="jumbotron bg-warning text-center">
+  <h1>our hood..</h1>
+</div>
+ {% else %} 
+<div class="jumbotron bg-warning text-center">
+ <a href="{% url 'login' %}"><h1>Log In</h1></a>| <br><a href="{% url 'signup' %}"><h1>Sign Up</h1></a>
+</div>
 {% endif %}
 
 {% endblock content %}
