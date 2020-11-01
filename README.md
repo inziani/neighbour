@@ -11,7 +11,7 @@ neighbour is a neighbourhood watch app built on django
 
 |Behaviour| Input |Expected Output|
 |---------|-------|---------------|
-|click the new button | The user gets an opportunity to submit a comment on the happenings around hiscommunity| User is taken to the complete list of entries|
+|click the new button | The user gets an opportunity to submit a comment on the happenings around his community| User is taken to the complete list of neighbourhood conversations|
 |sign up| email, password | account is created and user is sent to the sign up page
 
 
