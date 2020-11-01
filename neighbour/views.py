@@ -1,10 +1,20 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.db.models import Q
+from django.views.generic.edit import CreateView
+from django.shortcuts import redirect
 
 from .models import Neighbourhood, Business, Conversation
 
 # Create your views here.
+
+class CreateConvoView(CreateView):
+  model = Conversation
+  template_name = 'conversation.html'
+  fields = ('topic', 'details', 'member')
+  
+  
+  
 
 # def neighbourhood_list_view(request): 
 #   business = Business.objects.all()
@@ -12,7 +22,7 @@ from .models import Neighbourhood, Business, Conversation
 #   return render(request, 'neighbour.html', {'Neighbourhood':neighbourhood, 'Business':business})
 
 class NeighbourListView(ListView):
-  model = Business 
+  model = Conversation 
   template_name = 'neighbour.html'
 
 # class NeighbourListView(ListView):

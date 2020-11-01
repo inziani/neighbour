@@ -87,6 +87,6 @@ class Conversation(models.Model):
     return self.topic
 
   def get_absolute_url(self):
-    return reverse('conversation', args=[str(self.id)])
+    return reverse('neighbour')#, args=[str(self.details)])
 
 
